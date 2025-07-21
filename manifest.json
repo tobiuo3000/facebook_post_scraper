@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Group Post Crawler",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.facebook.com/*",
+    "*://facebook.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+       "*://*.facebook.com/*",  
+       "*://facebook.com/*"     
+     ],
+      "js": ["utils.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
